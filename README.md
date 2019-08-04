@@ -1,9 +1,10 @@
 # crud-spring-angular
 Cadastro de clientes, CRUD completo utilizando API Rest escrita em java Spring e Angular 7 para o Front End
 
-# API Docs
--HTTP REST
-{
+# API
+
+
+    {
     "nome": "API CadastroCliente",
     "endpoints": [
         {
@@ -51,11 +52,14 @@ Cadastro de clientes, CRUD completo utilizando API Rest escrita em java Spring e
                 "get": "retorna metaDados dos Representantes"
             }
         }
-    ]
-}
-#Informações adicionais
+      ]
+    }
 
-A API apenas responde requisições cross domain de localhost:4200
+
+
+## Informações adicionais
+
+A API apenas responde requisições cross-domain de http://localhost:4200
 
 Feito por Gustavo Velozo
 gvnv.2000@gmail.com
