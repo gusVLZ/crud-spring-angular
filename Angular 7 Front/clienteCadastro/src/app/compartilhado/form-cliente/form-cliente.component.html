@@ -1,0 +1,44 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="representante">Representante</label>
+    <select class="form-control" id="representante" name="representante" required #idRepresentante>
+      <option value="{{repres.id}}" *ngFor="let repres of representante">{{repres.nome}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="nome">Cliente</label>
+    <input class="form-control" id="nome" placeholder="Nome cliente" name="nome" #nome="ngModel"
+      [(ngModel)]="cliente.nome" [class.is-invalid]="!nome.valid && nome.touched" required />
+    <div *ngIf="!nome.valid && nome.touched" class="text-danger">
+      Informe o nome do cliente.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input class="form-control" type="email" id="email" placeholder="E-Mail cliente" name="email" #email="ngModel"
+      [(ngModel)]="cliente.email" [class.is-invalid]="!email.valid && email.touched" required />
+    <div *ngIf="!email.valid && email.touched" class="text-danger">
+      Informe o E-Mail do cliente.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="dtVisita">Data da visita</label>
+    <input class="form-control" type="datetime-local" id="dtVisita" placeholder="Data de visita" name="dtVisita" #dtVisita="ngModel"
+      [(ngModel)]="cliente.dtVisita" [class.is-invalid]="!dtVisita.valid && dtVisita.touched" required value="{{d}}"/>
+    <div *ngIf="!dtVisita.valid && dtVisita.touched" class="text-danger">
+      Informe a data da visita.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="valorDesloc">Valor Deslocamento</label>
+    <input class="form-control" type="number" id="valorDesloc" placeholder="R$ Deslocamento" name="valorDesloc" #valorDesloc="ngModel"
+      [(ngModel)]="cliente.valorDesloc" [class.is-invalid]="!valorDesloc.valid && valorDesloc.touched" required value="{{d}}"/>
+    <div *ngIf="!valorDesloc.valid && valorDesloc.touched" class="text-danger">
+      Informe o valor de deslocamento.
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
+</form>

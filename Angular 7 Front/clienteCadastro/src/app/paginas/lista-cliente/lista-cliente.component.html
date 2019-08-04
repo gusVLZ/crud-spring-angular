@@ -1,0 +1,48 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <app-error-msg></app-error-msg>
+      <div class="text-right">
+        <button type="button" class="btn btn-success" routerLink="/cliente/criar">Novo cliente</button>
+      </div>
+      <div class="text-center" *ngIf="!existemClientes()">
+        Nenhum cliente cadastrado.
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-4 mb-4" *ngFor="let cliente of clientes">
+      <div class="card">
+        <div class="card-header">
+          <span class="badge badge-pill">
+            Número do Cliente: {{cliente.id}}
+          </span>
+        </div>
+        <div class="card-body">
+          <b>Nome: </b>
+          <p class="card-text">{{cliente.nome}}</p>
+          <b>Representante: </b>
+          <p class="card-text">{{cliente.representante.nome}}</p>
+          <b>Data da Visita: </b>
+          <p class="card-text">{{cliente.dtVisita}}</p>
+          <b>Valor de deslocamento: </b>
+          <p class="card-text">R$ {{cliente.valorDesloc}}</p>
+        </div>
+        <div class="card-footer">
+          <div class="text-right">
+            <button type="button" class="btn btn-primary btn-sm ml-1"
+              routerLink="/cliente/editar/{{cliente.id}}">Editar</button>
+            <button type="button" class="btn btn-danger btn-sm ml-1"
+              (click)="deletaCliente(cliente.id)">Deletar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3" *ngIf="existemClientes()">
+    <div class="col-md-8 mx-auto text-center">
+      <h5><b>{{metaDados.maiorCusto[0]}}</b> foi quem mais gastou com deslocamento, totalizando R$ <b>{{metaDados.maiorCusto[1]}}</b></h5>
+      <h5>Quem visitou mais clientes foi <b>{{metaDados.maiorVisitas[0]}}</b>, totalizando <b>{{metaDados.maiorVisitas[1]}}</b> visitas</h5>
+    </div>
+  </div>
+</div>
