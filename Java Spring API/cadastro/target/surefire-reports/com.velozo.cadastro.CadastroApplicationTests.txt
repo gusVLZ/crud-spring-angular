@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.velozo.cadastro.CadastroApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 55.136 s - in com.velozo.cadastro.CadastroApplicationTests
